@@ -19,7 +19,7 @@ module PadrinoRpm
       
       def dispatch!(*args, &block)
         if @route
-          name = @route.as_options[:name]
+          name = @route.as_options[:name] || @route.as_options[:__name__]
           short_name = name.to_s.split(/_/).last
           controller = @route.controller
         end
